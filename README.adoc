@@ -1,0 +1,40 @@
+// ==================================================================================
+// Running the microservice
+// ==================================================================================
+
+== Running the microservice
+
+DeleteCrewService works in conjunction with MainCrewService.
+
+For DeleteCrewService, you'll need to set your specific values in the bootstrap.properties like
+[source,role="no_copy"]
+mongo.hostname=avl-mongo-1.fyre.ibm.com
+mongo.port=27017
+mongo.dbname=crewdb
+
+== Utilizing the OpenAPI UI
+
+[role='command']
+
+Go to the http://HOST:PORT/openapi/ui/[^] URL to see the OpenAPI user interface (UI) that provides API documentation and a client to test the API endpoints that you create after you see a message similar to the following example:
+
+[source,role="no_copy"]
+----
+CWWKZ0001I: Application DeleteCrewService started in 5.715 seconds.
+----
+
+**Try the Delete operation**
+
+From the OpenAPI UI, test the delete operation at the `DELETE/api/crew/{id}` endpoint, where the `{id}` parameter is the `\<<ID>>` that you saved from the create operation. This request removes the document that contains the specified crew member object `id` from the collection.
+
+You'll receive a response that contains the object `id` of the deleted crew member, as shown in the following example:
+
+[role="no_copy"]
+```
+{
+  "_id": {
+    "$oid": "<<ID>>"
+  }
+}
+```
+
